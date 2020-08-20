@@ -5,7 +5,7 @@ export default {
       url: '/api/'
     },
     views: {
-      engine: '.hbs',
+      engine: 'hbs',
       extension: '.hbs',
       path: './views'
     }

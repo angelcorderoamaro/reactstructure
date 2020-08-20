@@ -1,19 +1,20 @@
 // //Dependencias
 
 // import webpack from 'webpack';
-// import path from 'path';
+import path from 'path';
 // import ChunksPlugin from 'webpack-split-chunks';
 // //Enviroment
-// const isDevelopment = process.env.NODE_ENV !== 'production';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 // //paths
-// const PATHS = {
-//   index: path.join(__dirname, 'src/index'),
-//   build: path.join(__dirname, '/src/public'),
-//   src: path.join(__dirname, 'src')
-// }
+const PATHS = {
+  index: path.join(__dirname, 'src/index'),
+  build: path.join(__dirname, 'src/public'),
+  src: path.join(__dirname, 'src')
+}
 
-// const getDevtool = () => 'cheap-module-eval-source-map'
+//const getDevtool = () => 'cheap-module-eval-source-map'
 // const getEntry = () => {
+
 //   const entry = [
 //     PATHS.index
 //   ];
@@ -22,10 +23,20 @@
 //   }
 //   return entry;
 // }
-// const getOuput = () => ({
+
+// const getOuput = () => (
+//   {
 //   path: PATHS.build,
 //   publicPath: '/',
-//   filename: '[name].bundle.js'
+//   filename: 'bundle.js'
+
+// })
+// const getOuput = () => ({
+//   entry: ['./src/index.js'],
+//   output: {
+//     path: path.resolve(__dirname, 'dist'),
+//     filename: 'bundle.js'
+//   }
 
 // })
 
@@ -89,15 +100,23 @@ import {
   optimization,
   plugins,
   resolve,
-  target
+  target,
 } from './webpack/configuration';
 
 export default {
+
+  mode: 'development',
   devtool,
   module,
   optimization,
-  plugins,
+ plugins,
   resolve,
   target,
-  mode: 'development'
+  //devtool: getDevtool(),
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+
 };

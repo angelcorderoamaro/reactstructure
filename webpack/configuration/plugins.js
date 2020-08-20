@@ -6,19 +6,15 @@ const path = require("path");
 const HandlebarsWebpackPlugin = require("handlebars-webpack-plugin");
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-console.log("path.join(__dirnamepath.join(__dirnamepath.join(__dirnamepath.join(__dirnamepath.join(__dirname",path.join(__dirname))
 const plugins = [
+  // new webpack.LoaderOptionsPlugin({
+  //   options: {
+  //     handlebarsLoader: {}
+  //   }
+  // }),
   new HtmlWebpackPlugin({
-
-    // initialState: JSON.stringify({
-    //   device: {
-    //     isMobile: false
-    //   }
-    // }),
- 
     title: 'My custom title!',
-    template: './src/server/views/frontend/index.hbs',
-    //filename: 'test.html',
+    template: './src/server/views/frontend/index.hbs'
   }),
 
   new MiniCssExtractPlugin(),

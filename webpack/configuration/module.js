@@ -7,7 +7,16 @@ const rules = [
       loader: 'babel-loader'
     }
   },
-   { test: /\.hbs$/, loader: "handlebars-loader" },
+  {
+    test: /\.hbs$/,
+    use: [{
+      loader: 'handlebars-loader',
+      options: {
+        knownHelpersOnly: false,
+        helperDirs: [path.join(__dirname, 'handlebars.js')],
+      }
+    }]
+ },
   {
     test: /\.css$/,
     use: [
@@ -28,7 +37,7 @@ const rules = [
 
     ],
     include: /\.module\.css$/
-  },{
+  }, {
     test: /\.css$/,
     use: [
       'style-loader',
@@ -40,7 +49,7 @@ const rules = [
     use: 'file-loader'
     // loader: 'url-loader?limit=10000&mimetype=image/svg+xml'
   }
- 
+
 ];
 
 export default {

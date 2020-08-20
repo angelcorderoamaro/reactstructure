@@ -33,19 +33,25 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Handlebars setup
+console.log("path.join(__dirnamepppppppppppppppppppppppppppppp",path.join(__dirname,"..","server","views","frontend"))
 app.engine(config.views.engine, exphbs({
-  extname: config.views.extension,
+  layoutsDir: path.join(__dirname,"..","server","views","frontend"),
+  defaultLayout: 'index',
+  extname: 'hbs',
   helpers: hbsHelper
 }));
 
 // View Engine Setup
-app.set('views', path.join(__dirname, config.views.path));
 app.set('view engine', '.hbs');
+//app.set('views', path.join(__dirname, config.views.path));
+app.set('views', path.join(__dirname, '..','server','views'));
+
 
 // Webpack Compiler
 const webpackCompiler = webpack(webpackConfig);
 
 if (isDevelopment) {
+  console.log("isDevelopment-----------------------------------------------")
   app.use(webpackDevMiddleware(webpackCompiler));
   app.use(webpackHotMiddleware(webpackCompiler));
 }
@@ -63,7 +69,7 @@ app.use('/api/library', libraryApi);
 
 // Sending all the traffic to React
 app.get('*', (req, res) => {
-  res.render('frontend/index', {
+  res.render('frontend/index.hbs', {
     layout: false
   });
 });
