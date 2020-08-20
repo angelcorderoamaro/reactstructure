@@ -66,3 +66,32 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+INSTALACIONES
+react-router-dom
+prop-types
+npm i @babel/polyfill
+babel-polyfill //babel nueva sintaxis de js
+express
+path
+
+
+Configuración de babel
+yarn add --dev babel-cli babel-core babel-preset-es2015 babel-preset-react babel-preset-react-hmre babel-preset-stage-0 
+babel-register css-loader file-loader open style-loader url-loader webpack webpack-dev-middleware webpack-hot-middleware
+
+
+Antes debo actualizar a la ultima version las paqueterias babel upgrade
+1....npm uninstall babel-preset-es2015 --save--dev
+2....npm uninstall babel-loader --save-dev
+3-...yarn add babel-preset-env
+4... npm install -D babel-loader@7
+
+npm install --save-dev  --unsafe-perm node-sass
+
+npm i -D webpack-cli
+yarn add --dev webpack-split-chunks
+
+LEER https://blog.jakoblind.no/css-modules-webpack/ SI NO CARGA LOS CSS
